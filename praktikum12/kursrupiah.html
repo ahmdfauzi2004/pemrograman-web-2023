@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kurs Rupiah</title>
+    <script src="konversi.js" defer></script>
+</head>
+<body>
+    <h1>Konversi Mata Uang ke Rupiah</h1>
+    
+    <label for="nilaiMataUang">Masukkan Nilai Mata Uang Asing:</label>
+    <input type="number" id="nilaiMataUang" placeholder="Masukkan nilai mata uang" required>
+    
+    <label for="valas">Pilih Valas:</label>
+    <select id="valas" onchange="hitungKonversi()">
+        <option value="usd">Dollar US</option>
+        <option value="sgd">Dollar Singapore</option>
+        <option value="myr">Ringgit Malaysia</option>
+        <option value="jpy">Yen Jepang</option>
+        <option value="eur">Euro</option>
+        <option value="sar">Riyal Arab Saudi</option>
+    </select>
+    
+    <label for="nilaiRupiah">Hasil Konversi (Rupiah):</label>
+    <input type="text" id="nilaiRupiah" readonly>
+</body>
+
+<script>
+    function hitungKonversi() {
+    // Mendapatkan nilai input dari form
+    var nilaiMataUang = parseFloat(document.getElementById("nilaiMataUang").value);
+    var valas = document.getElementById("valas").value;
+
+    // Nilai valas terhadap rupiah
+    var kurs = {
+        usd: 9915,
+        sgd: 13472,
+        myr: 874,
+        jpy: 120,
+        eur: 15888,
+        sar: 3592
+    };
+
+    // Menghitung nilai rupiah
+    var nilaiRupiah = nilaiMataUang * kurs[valas];
+
+    // Menampilkan hasil konversi
+    document.getElementById("nilaiRupiah").value = nilaiRupiah;
+}
+</script>
+</html>

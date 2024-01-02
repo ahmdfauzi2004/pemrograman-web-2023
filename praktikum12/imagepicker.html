@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Picker</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="imagepicker.js" defer></script>
+</head>
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    text-align: center;
+}
+
+#image-container {
+    margin-top: 10px;
+}
+
+#selected-image {
+    max-width: 100%;
+}
+
+#alert-container {
+    margin-top: 10px;
+}
+</style>
+<body>
+    <h1>Image Picker</h1>
+    
+    <label for="image-dropdown">Pilih Gambar:</label>
+    <select id="image-dropdown" onchange="displayImage()">
+        <option value="image1.jpg">Image 1</option>
+        <option value="image2.jpg">Image 2</option>
+        <option value="image3.jpg">Image 3</option>
+        <option value="image4.jpg">Image 4</option>
+        <option value="image5.jpg">Image 5</option>
+        <!-- Tambahkan opsi lainnya sesuai jumlah gambar -->
+    </select>
+
+    <div id="image-container">
+        <img id="selected-image" alt="Selected Image">
+    </div>
+
+    <div id="alert-container">
+        <p id="image-info"></p>
+    </div>
+</body>
+
+<script>
+    function displayImage() {
+    var dropdown = document.getElementById("image-dropdown");
+    var selectedImage = document.getElementById("selected-image");
+    var imageInfo = document.getElementById("image-info");
+
+    var selectedOption = dropdown.options[dropdown.selectedIndex];
+    var imageName = selectedOption.value;
+    var imageText = selectedOption.text;
+
+    selectedImage.src = imageName;
+    imageInfo.textContent = "Selected Image: " + imageText;
+    alert("Image Info:\n" + imageName);
+}
+</script>
+</html>

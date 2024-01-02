@@ -1,0 +1,32 @@
+body {
+    display: flex;
+    flex-direction: row;
+}
+nav {
+    background-color: rgb(215, 98, 98);
+    width: 150px;
+    height: 550px;
+
+}
+header {
+    background-color: darkgoldenrod;
+    height: 100px;
+    width: 1050px;
+}
+article {
+    background-color: white;
+    width: 900px;
+    height: 150px;
+}
+aside {
+    background-color: blue;
+    width: 150px;
+    height: 350px;
+}
+.main {
+    display: flex;
+}
+footer {
+    background-color: darkgoldenrod;
+    height: 100px;
+}
